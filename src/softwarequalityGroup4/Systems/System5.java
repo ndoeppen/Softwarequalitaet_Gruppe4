@@ -11,14 +11,15 @@ package softwarequalityGroup4.Systems;
  */
 public class System5 extends SQSystem{
     
-    int n;
-    double[] lambda;
     int t = 10;
+    int failure = 999;
     
-    public System5(int n, double[] lambda)
+    public System5(int n, double[] lambda, boolean falsification)
     {
-        this.n = n;
-        this.lambda = lambda;
+        super(n, lambda, falsification);
+        if(falsification){
+            failure();
+        }
     }
     
     @Override
@@ -28,14 +29,19 @@ public class System5 extends SQSystem{
         double Rp = 0;
         int zähler = 0;
         
-        while(zähler != n)
+        while(zähler != components)
         {
-            Fp = Fp + 1- Math.exp(-(lambda[zähler]*t));
+            Fp = Fp + 1- Math.exp(-(lambdas[zähler]*t));
             zähler++;
         }
         Rp = 1 - Fp;
         
         return Rp;
+    }
+    
+    public double failure()
+    {
+        return failure;
     }
     
 }
