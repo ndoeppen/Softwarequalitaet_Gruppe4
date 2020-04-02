@@ -132,36 +132,25 @@ public class GUI extends javax.swing.JFrame {
         }
 
         splitLambda();
-        try{
-            /*
-        System1 system1 = new System1(componentCount, lambdaI);
-        resultTextArea.append(String.valueOf("Reliability of system1 is "+system1.getReliabilityParameter()) + "\n");
-        
-        System2 system2 = new System2(componentCount, lambdaI);
-        resultTextArea.append(String.valueOf("Reliability of system2 is "+system2.getReliabilityParameter()) + "\n");
-        
-        System3 system3 = new System3(componentCount, lambdaI);
-        resultTextArea.append(String.valueOf("Reliability of system3 is "+system3.getReliabilityParameter()) + "\n");
-        
-        System4 system4 = new System4(componentCount, lambdaI);
-        resultTextArea.append(String.valueOf("Reliability of system4 is "+system4.getReliabilityParameter()) + "\n");
-        */
-        //System5 system5 = new System5(componentCount, lambdaI);
-        //resultTextArea.append(String.valueOf("Reliability of system4 is "+system5.getReliabilityParameter()) + "\n");
-        
-        ArrayList<SQSystem> systemList = new ArrayList<SQSystem>();
-        
-        systemList.add(new System4(componentCount, lambdaI));
-        
+        try {
+            ArrayList<SQSystem> systemList = new ArrayList<SQSystem>();
+
+            systemList.add(new System1(componentCount, lambdaI, false));
+            systemList.add(new System2(componentCount, lambdaI, false));
+            systemList.add(new System3(componentCount, lambdaI, false));
+            systemList.add(new System4(componentCount, lambdaI, false));
+            systemList.add(new System5(componentCount, lambdaI, false));
+
+            double results[] = new double[systemList.size()];
+            
             for (int i = 0; i < systemList.size(); i++) {
-                resultTextArea.append(String.valueOf("Reliability of system" + String.valueOf(i+1) +" is "+systemList.get(i).getReliabilityParameter()) + "\n");
+                resultTextArea.append(String.valueOf("Reliability of system" + String.valueOf(i + 1) + " is " + systemList.get(i).getReliabilityParameter()) + "\n");
             }
-        
-      
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
     }//GEN-LAST:event_startButtonActionPerformed
 
     private void splitLambda() {
@@ -171,16 +160,16 @@ public class GUI extends javax.swing.JFrame {
         try {
             lambdas = lambdaInput.split(",");
             lambdaI = new double[lambdas.length];
-            
+
             for (int i = 0; i < lambdas.length; i++) {
                 lambdas[i] = lambdas[i].replace(" ", "");
                 lambdaI[i] = Double.parseDouble(lambdas[i]);
             }
-            
-            if(lambdas.length != componentCount){
+
+            if (lambdas.length != componentCount) {
                 throw new Exception();
             }
-            
+
         } catch (Exception e) {
             lambdaErrorLabel.setText("Ungültige Eingabe");
             e.printStackTrace();
