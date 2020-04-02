@@ -38,10 +38,4 @@ public class System2 implements SoftwareQualitySystem{
         return zuverlaessigkeit;
     }
     
-    public static void main(String[] args) {
-        double[] lambdas = {0.2, 0.2};
-        System2 test = new System2(lambdas.length, lambdas);
-        System.out.println(test.getReliabilityParameter());
-    }
-    
 }
