@@ -9,20 +9,33 @@ package softwarequalityGroup4.Systems;
  *
  * @author Volka
  */
-public class System5 {
+public class System5 extends SQSystem{
     
-    public double gibFp(int n, int[] lambda)
+    int n;
+    double[] lambda;
+    int t = 10;
+    
+    public System5(int n, double[] lambda)
     {
-        int t = 10;
+        this.n = n;
+        this.lambda = lambda;
+    }
+    
+    @Override
+    public double getReliabilityParameter()
+    {
         double Fp = 0;
+        double Rp = 0;
         int zähler = 0;
+        
         while(zähler != n)
         {
             Fp = Fp + 1- Math.exp(-(lambda[zähler]*t));
             zähler++;
         }
+        Rp = 1 - Fp;
         
-        return Fp;
+        return Rp;
     }
     
 }
