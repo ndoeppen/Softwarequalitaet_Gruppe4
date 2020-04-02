@@ -13,13 +13,12 @@ public class System5 extends SQSystem{
     
     int t = 10;
     int failure = 999;
+    boolean falsification;
     
     public System5(int n, double[] lambda, boolean falsification)
     {
         super(n, lambda, falsification);
-        if(falsification){
-            failure();
-        }
+        this.falsification = falsification;
     }
     
     @Override
@@ -36,6 +35,9 @@ public class System5 extends SQSystem{
         }
         Rp = 1 - Fp;
         
+        if(falsification){
+            return failure();
+        }
         return Rp;
     }
     
