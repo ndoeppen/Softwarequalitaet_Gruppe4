@@ -10,5 +10,12 @@ package softwarequalityGroup4.Systems;
  * @author Nils
  */
 public abstract class SQSystem implements ISoftwareQualitySystem{
-    
+    int components;
+    double[] lambdas;
+
+    SQSystem(int pComponents, double[] pLambdas, Boolean falschRechnen){
+        components = pComponents;
+        lambdas = pLambdas;
+    }
+
 }
