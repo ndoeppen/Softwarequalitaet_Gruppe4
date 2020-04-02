@@ -11,4 +11,18 @@ package softwarequalityGroup4.Systems;
  */
 public class System5 {
     
+    public double gibFp(int n, int lambda)
+    {
+        int t = 10;
+        double Fp = 0;
+        int zähler = 0;
+        while(zähler != n)
+        {
+            Fp = 1- Math.exp(-(lambda*t));
+            zähler++;
+        }
+        
+        return Fp;
+    }
+    
 }
