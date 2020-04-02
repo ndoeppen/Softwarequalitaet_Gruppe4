@@ -9,16 +9,12 @@ package softwarequalityGroup4.Systems;
  *
  * @author marvi
  */
-public class System3 implements ISoftwareQualitySystem{
+public class System3 extends SQSystem{
 
-    int n;
     double t = 10.0;
-    double[] lambda;
-    
-    public System3(int n, double lambda[]) {
-        
-        this.n = n;
-        this.lambda = lambda;
+
+    public System3(int n, double[] lambdas, Boolean falsification) {
+        super(n, lambdas, falsification);
     }
     
     public double getReliabilityParameter(){
@@ -31,9 +27,9 @@ public class System3 implements ISoftwareQualitySystem{
         
         double Fp = 0.0;
         
-        for(int i = 0; i<n ; i++){
+        for(int i = 0; i<components ; i++){
             
-            double Ri = Math.exp(-(lambda[i])*t);
+            double Ri = Math.exp(-(lambdas[i])*t);
             
             if(i == 0){
                 Fp = 1.0 - Ri;
