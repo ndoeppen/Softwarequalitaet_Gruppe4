@@ -10,7 +10,7 @@ public class System4 extends SQSystem{
     public System4(int n, double[] lambda, boolean falsification){
         super(n, lambda, falsification);
         if(falsification){
-            lambdas[n-1] = lambdas[n-1]/2;
+            t = 100;
         }
     }
     
