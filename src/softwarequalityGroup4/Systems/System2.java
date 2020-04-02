@@ -1,41 +1,43 @@
-
 package softwarequalityGroup4.Systems;
 
 /**
  * Lambda in pro Jahr
  * @author 9543450
  */
-public class System2 implements ISoftwareQualitySystem{
+public class System2 extends SQSystem{
     
-    private int anzahlAusfallraten;
-    private double ausfallraten[];
-    private double zuverlaessigkeit;
+    private final double reliability;
     private static int t;
-    
-    public System2(int pAnzahlAusfallraten, double pAusfallraten[]) {
+
+    public System2(int pComponents, double[] pLambdas, Boolean falsification) {
+        super(pComponents, pLambdas, falsification);
+        
+        if(falsification) {
+            reliability = 0;
+            return;
+        }
         
         t = 10;
-        anzahlAusfallraten = pAnzahlAusfallraten;
-        ausfallraten = pAusfallraten.clone();
         
-        double[] r = new double[anzahlAusfallraten];
+        double[] r = new double[components];
         int i = 0;
-        for (double lambda : ausfallraten) {
+        for (double lambda : lambdas) {
             r[i] = Math.exp(-lambda * t);
             i++;
         }
         
-        double ausfallwahrscheinlichkeit = 1;
+        double failurePropability = 1;
         for(double ri : r){
-            ausfallwahrscheinlichkeit *= (1 - ri);
+            failurePropability *= (1 - ri);
         }
         
-        zuverlaessigkeit = 1 - ausfallwahrscheinlichkeit;
+        reliability = 1 - failurePropability;
     }
+    
 
     @Override
     public double getReliabilityParameter() {
-        return zuverlaessigkeit;
+        return reliability;
     }
     
 }
