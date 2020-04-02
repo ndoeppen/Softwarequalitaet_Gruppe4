@@ -8,7 +8,7 @@ public class System1 extends SQSystem {
     public System1(int pComponents, double[] pLambdas, Boolean falsification) throws Exception {
         super(pComponents, pLambdas, falsification);
         if (falsification) {
-            t = 5000;
+            t = 30;
         } else {
             t = 10;
         }
