@@ -11,6 +11,6 @@ package softwarequalitaet_gruppe4;
  */
 public interface SoftwareQualitySystem {
     
-    public double reliabilityParameter();
+    public double getReliabilityParameter();
     
 }
