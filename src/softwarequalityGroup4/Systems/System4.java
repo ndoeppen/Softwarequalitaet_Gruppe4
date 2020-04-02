@@ -5,16 +5,13 @@ package softwarequalityGroup4.Systems;
  * @author Nils
  */
 public class System4 extends SQSystem{
-
-    int n;
-    double[] lambda;
     int t = 10;
     
-    public System4(int n, double[] lambda){
-        
-        this.n = n;
-        this.lambda = lambda;
-        
+    public System4(int n, double[] lambda, boolean falsification){
+        super(n, lambda, falsification);
+        if(falsification){
+            lambdas[n-1] = lambdas[n-1]/2;
+        }
     }
     
     @Override
@@ -29,8 +26,8 @@ public class System4 extends SQSystem{
     private double calcFailureProbability(){
         double failure = 1;
         
-        for(int i=0; i<n; i++){
-            failure *= 1 - Math.exp(-1*lambda[i]*t);
+        for(int i=0; i<components; i++){
+            failure *= 1 - Math.exp(-1*lambdas[i]*t);
         }
         
         return failure;
