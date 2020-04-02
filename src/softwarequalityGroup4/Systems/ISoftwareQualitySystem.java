@@ -9,7 +9,7 @@ package softwarequalityGroup4.Systems;
  *
  * @author Nils
  */
-public interface SoftwareQualitySystem {
+public interface ISoftwareQualitySystem {
     
     public double getReliabilityParameter();
     

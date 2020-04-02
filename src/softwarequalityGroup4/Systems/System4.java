@@ -4,7 +4,7 @@ package softwarequalityGroup4.Systems;
  *
  * @author Nils
  */
-public class System4 implements SoftwareQualitySystem{
+public class System4 extends SQSystem{
 
     int n;
     double[] lambda;

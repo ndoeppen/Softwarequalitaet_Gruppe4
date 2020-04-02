@@ -1,6 +1,6 @@
 package softwarequalityGroup4.Systems;
 
-public class System1 implements SoftwareQualitySystem
+public class System1 implements ISoftwareQualitySystem
 {
 
     int components;
