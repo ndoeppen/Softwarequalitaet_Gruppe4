@@ -15,14 +15,17 @@ public class System5 {
     {
         int t = 10;
         double Fp = 0;
+        double Rp = 0;
         int zähler = 0;
+        
         while(zähler != n)
         {
             Fp = Fp + 1- Math.exp(-(lambda[zähler]*t));
             zähler++;
         }
+        Rp = 1 - Fp;
         
-        return Fp;
+        return Rp;
     }
     
 }
