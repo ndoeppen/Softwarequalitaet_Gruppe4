@@ -31,7 +31,7 @@ public class System5 extends SQSystem{
         
         while(zähler != components)
         {
-            Fp = Fp + 1- Math.exp(-(lambdas[zähler]*t));
+            Fp = Fp + 1- (Math.exp(-1*(lambdas[zähler]*t)));
             zähler++;
         }
         Rp = 1 - Fp;
