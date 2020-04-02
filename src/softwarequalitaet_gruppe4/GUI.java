@@ -3,13 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package softwarequalitaet_grupp4;
+package softwarequalitaet_gruppe4;
 
 /**
  *
  * @author Nils
  */
 public class GUI extends javax.swing.JFrame {
+
+    int componentCount;
+    String lambdaInput;
+    double[] lambdaI;
 
     /**
      * Creates new form GUI
@@ -27,15 +31,25 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         startButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         componentsTextField = new javax.swing.JTextField();
         lambdaTextField = new javax.swing.JTextField();
+        componentErrorLabel = new javax.swing.JLabel();
+        lambdaErrorLabel = new javax.swing.JLabel();
+
+        jLabel3.setText("jLabel3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         startButton.setText("Start");
+        startButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Anzahl der in Reihe geschalteten Komponenten n:");
 
@@ -60,7 +74,10 @@ public class GUI extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(lambdaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(componentErrorLabel)
+                                    .addComponent(lambdaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lambdaErrorLabel))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -71,17 +88,55 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(componentsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(3, 3, 3)
+                .addComponent(componentErrorLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lambdaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lambdaErrorLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(startButton)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
+        componentErrorLabel.setText("");
+        lambdaInput = lambdaTextField.getText();
+
+        try {
+            componentCount = Integer.parseInt(componentsTextField.getText());
+
+        } catch (Exception e) {
+            componentErrorLabel.setText("Ungültige Eingabe");
+        }
+
+        splitLambda();
+
+    }//GEN-LAST:event_startButtonActionPerformed
+
+    private void splitLambda() {
+        lambdaErrorLabel.setText("");
+        String[] lambdas;
+
+        try {
+            lambdas = lambdaInput.split(",");
+            lambdaI = new double[lambdas.length];
+            
+            for (int i = 0; i < lambdas.length; i++) {
+                lambdas[i] = lambdas[i].replace(" ", "");
+                lambdaI[i] = Double.parseDouble(lambdas[i]);
+            }
+        } catch (Exception e) {
+            lambdaErrorLabel.setText("Ungültige Eingabe");
+            e.printStackTrace();
+        }
+
+    }
 
     /**
      * @param args the command line arguments
@@ -119,9 +174,12 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel componentErrorLabel;
     private javax.swing.JTextField componentsTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lambdaErrorLabel;
     private javax.swing.JTextField lambdaTextField;
     private javax.swing.JButton startButton;
     // End of variables declaration//GEN-END:variables
