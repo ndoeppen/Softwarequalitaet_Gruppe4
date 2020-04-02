@@ -1,7 +1,7 @@
 package softwarequalityGroup4;
 
 import java.util.ArrayList;
-import softwarequalityGroup4.Systems.System5;
+import softwarequalityGroup4.Systems.System4;
 
 /**
  *
@@ -130,8 +130,8 @@ public class GUI extends javax.swing.JFrame {
         
         ArrayList<System> systemList = new ArrayList<System>();
         
-        System5 system5 = new System5(componentCount, lambdaI);
-        resultTextArea.append(String.valueOf("Reliability of system5 is "+system5.getReliabilityParameter()) + "\n");
+        System4 system4 = new System4(componentCount, lambdaI);
+        resultTextArea.append(String.valueOf("Reliability of system5 is "+system4.getReliabilityParameter()) + "\n");
         
     }//GEN-LAST:event_startButtonActionPerformed
 

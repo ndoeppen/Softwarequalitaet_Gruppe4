@@ -1,39 +1,28 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package softwarequalityGroup4.Systems;
 
 /**
  *
- * @author Nils
+ * @author Volka
  */
-public class System5 implements SoftwareQualitySystem{
-
-    int n;
-    double[] lambda;
-    int t = 10;
+public class System5 {
     
-    public System5(int n, double[] lambda){
-        
-        this.n = n;
-        this.lambda = lambda;
-        
-    }
-    
-    @Override
-    public double getReliabilityParameter() {
-        double reliability;
-        
-        reliability = 1-calcFailureProbability();
-        
-        return reliability;
-    }
-    
-    private double calcFailureProbability(){
-        double failure = 1;
-        
-        for(int i=0; i<n; i++){
-            failure *= 1 - Math.exp(-1*lambda[i]*t);
+    public double gibFp(int n, int lambda)
+    {
+        int t = 10;
+        double Fp = 0;
+        int zähler = 0;
+        while(zähler != n)
+        {
+            Fp = 1- Math.exp(-(lambda*t));
+            zähler++;
         }
         
-        return failure;
+        return Fp;
     }
     
 }
