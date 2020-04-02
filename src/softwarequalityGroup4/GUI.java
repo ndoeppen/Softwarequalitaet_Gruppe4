@@ -44,6 +44,12 @@ public class GUI extends javax.swing.JFrame {
         lambdaErrorLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         resultTextArea = new javax.swing.JTextArea();
+        false1Box = new javax.swing.JCheckBox();
+        false5Box = new javax.swing.JCheckBox();
+        false2Box = new javax.swing.JCheckBox();
+        false3Box = new javax.swing.JCheckBox();
+        false4Box = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
 
@@ -65,32 +71,51 @@ public class GUI extends javax.swing.JFrame {
         resultTextArea.setRows(5);
         jScrollPane1.setViewportView(resultTextArea);
 
+        false1Box.setText("System 1");
+
+        false5Box.setText("System 5");
+
+        false2Box.setText("System 2");
+
+        false3Box.setText("System 3");
+
+        false4Box.setText("System 4");
+
+        jLabel4.setText("Falsifizieren:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(componentsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(componentErrorLabel)
-                                    .addComponent(lambdaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lambdaErrorLabel))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(componentsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(componentErrorLabel)
+                            .addComponent(lambdaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lambdaErrorLabel)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(startButton)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(startButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(false1Box)
+                                    .addComponent(false5Box)
+                                    .addComponent(false2Box)
+                                    .addComponent(false3Box)
+                                    .addComponent(false4Box)
+                                    .addComponent(jLabel4))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,14 +131,24 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(lambdaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lambdaErrorLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lambdaErrorLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(startButton)))
+                        .addComponent(jLabel4)
+                        .addGap(9, 9, 9)
+                        .addComponent(false1Box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(false2Box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(false3Box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(false4Box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(false5Box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(startButton))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -122,10 +157,15 @@ public class GUI extends javax.swing.JFrame {
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         componentErrorLabel.setText("");
+        resultTextArea.setText("");
         lambdaInput = lambdaTextField.getText();
 
         try {
+            if(componentsTextField.getText().equals("")){
+                componentCount = 1;
+            } else {
             componentCount = Integer.parseInt(componentsTextField.getText());
+            }
 
         } catch (Exception e) {
             componentErrorLabel.setText("Ungültige Eingabe");
@@ -135,17 +175,58 @@ public class GUI extends javax.swing.JFrame {
         try {
             ArrayList<SQSystem> systemList = new ArrayList<SQSystem>();
 
-            systemList.add(new System1(componentCount, lambdaI, false));
-            systemList.add(new System2(componentCount, lambdaI, false));
-            systemList.add(new System3(componentCount, lambdaI, false));
-            systemList.add(new System4(componentCount, lambdaI, false));
-            systemList.add(new System5(componentCount, lambdaI, false));
+            systemList.add(new System1(componentCount, lambdaI, false1Box.isSelected()));
+            systemList.add(new System2(componentCount, lambdaI, false2Box.isSelected()));
+            systemList.add(new System3(componentCount, lambdaI, false3Box.isSelected()));
+            systemList.add(new System4(componentCount, lambdaI, false4Box.isSelected()));
+            systemList.add(new System5(componentCount, lambdaI, false5Box.isSelected()));
 
-            double results[] = new double[systemList.size()];
-            
+            int[] resultArray = new int[5];
+
+            for (int i = 0; i < 5; i++) {
+                resultArray[i] = 0;
+            }
+
+            ArrayList<Double> results = new ArrayList<Double>();
+            results.add(systemList.get(0).getReliabilityParameter());
+            resultArray[0] = 1;
+
             for (int i = 0; i < systemList.size(); i++) {
                 resultTextArea.append(String.valueOf("Reliability of system" + String.valueOf(i + 1) + " is " + systemList.get(i).getReliabilityParameter()) + "\n");
+
+                int differentResults = 0;
+                for (int j = 0; j < results.size(); j++) {
+                    if (systemList.get(i).getReliabilityParameter() != results.get(j)) {
+                        differentResults++;
+                        
+                    }
+                }
+                if (differentResults == results.size()) {
+                    results.add(systemList.get(i).getReliabilityParameter());
+                }
             }
+            
+            int differentResults = results.size();
+            
+            if(resultArray[2] >= 1 || (resultArray[0] > 1 && resultArray[0] > 1)){
+                differentResults = 3;
+            }
+
+            String votingResult = "";
+            switch (differentResults) {
+                case 1:
+                    votingResult = "Kein Fehler aufgetreten.";
+                    break;
+                case 2:
+                    votingResult = "1 Fehler aufgetreten.";
+                    break;
+                default:
+                    votingResult = "Mehrere Fehler aufgetreten";
+                    break;
+
+            }
+
+            resultTextArea.append("\n" + votingResult + "\n");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -215,9 +296,15 @@ public class GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel componentErrorLabel;
     private javax.swing.JTextField componentsTextField;
+    private javax.swing.JCheckBox false1Box;
+    private javax.swing.JCheckBox false2Box;
+    private javax.swing.JCheckBox false3Box;
+    private javax.swing.JCheckBox false4Box;
+    private javax.swing.JCheckBox false5Box;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lambdaErrorLabel;
     private javax.swing.JTextField lambdaTextField;
