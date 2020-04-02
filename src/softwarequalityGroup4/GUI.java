@@ -1,6 +1,7 @@
 package softwarequalityGroup4;
 
 import java.util.ArrayList;
+import softwarequalityGroup4.Systems.SQSystem;
 import softwarequalityGroup4.Systems.System1;
 import softwarequalityGroup4.Systems.System2;
 import softwarequalityGroup4.Systems.System3;
@@ -132,21 +133,31 @@ public class GUI extends javax.swing.JFrame {
 
         splitLambda();
         try{
+            /*
         System1 system1 = new System1(componentCount, lambdaI);
         resultTextArea.append(String.valueOf("Reliability of system1 is "+system1.getReliabilityParameter()) + "\n");
         
-        //System2 system2 = new System2(componentCount, lambdaI);
-        //resultTextArea.append(String.valueOf("Reliability of system2 is "+system2.getReliabilityParameter()) + "\n");
+        System2 system2 = new System2(componentCount, lambdaI);
+        resultTextArea.append(String.valueOf("Reliability of system2 is "+system2.getReliabilityParameter()) + "\n");
         
         System3 system3 = new System3(componentCount, lambdaI);
         resultTextArea.append(String.valueOf("Reliability of system3 is "+system3.getReliabilityParameter()) + "\n");
         
         System4 system4 = new System4(componentCount, lambdaI);
         resultTextArea.append(String.valueOf("Reliability of system4 is "+system4.getReliabilityParameter()) + "\n");
-        
+        */
         //System5 system5 = new System5(componentCount, lambdaI);
         //resultTextArea.append(String.valueOf("Reliability of system4 is "+system5.getReliabilityParameter()) + "\n");
         
+        ArrayList<SQSystem> systemList = new ArrayList<SQSystem>();
+        
+        systemList.add(new System4(componentCount, lambdaI));
+        
+            for (int i = 0; i < systemList.size(); i++) {
+                resultTextArea.append(String.valueOf("Reliability of system" + String.valueOf(i+1) +" is "+systemList.get(i).getReliabilityParameter()) + "\n");
+            }
+        
+      
         } catch (Exception e) {
             e.printStackTrace();
         }

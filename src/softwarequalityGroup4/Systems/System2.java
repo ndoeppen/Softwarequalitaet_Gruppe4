@@ -5,7 +5,7 @@ package softwarequalityGroup4.Systems;
  * Lambda in pro Jahr
  * @author 9543450
  */
-public class System2 implements SoftwareQualitySystem{
+public class System2 implements ISoftwareQualitySystem{
     
     private int anzahlAusfallraten;
     private double ausfallraten[];

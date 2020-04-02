@@ -9,7 +9,7 @@ package softwarequalityGroup4.Systems;
  *
  * @author marvi
  */
-public class System3 implements SoftwareQualitySystem{
+public class System3 implements ISoftwareQualitySystem{
 
     int n;
     double t = 10.0;
