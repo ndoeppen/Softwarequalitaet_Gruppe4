@@ -24,13 +24,13 @@ public class System5 extends SQSystem{
     @Override
     public double getReliabilityParameter()
     {
-        double Fp = 0;
+        double Fp = 1;
         double Rp = 0;
         int zähler = 0;
         
         while(zähler != components)
         {
-            Fp = Fp + 1- (Math.exp(-1*(lambdas[zähler]*t)));
+            Fp = Fp * (1- (Math.exp(-1*(lambdas[zähler]*t))));
             zähler++;
         }
         Rp = 1 - Fp;
