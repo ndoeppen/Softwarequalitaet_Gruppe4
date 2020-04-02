@@ -13,7 +13,7 @@ public abstract class SQSystem implements ISoftwareQualitySystem{
     int components;
     double[] lambdas;
 
-    SQSystem(int pComponents, double[] pLambdas, Boolean falschRechnen){
+    SQSystem(int pComponents, double[] pLambdas, Boolean falsification){
         components = pComponents;
         lambdas = pLambdas;
     }
