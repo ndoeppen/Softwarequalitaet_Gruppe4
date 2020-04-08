@@ -28,6 +28,10 @@ public class System5 extends SQSystem{
         double Rp = 0;
         int zähler = 0;
         
+        if(falsification){
+            return failure();
+        }
+        
         while(zähler != components)
         {
             Fp = Fp * (1- (Math.exp(-1*(lambdas[zähler]*t))));
@@ -35,9 +39,6 @@ public class System5 extends SQSystem{
         }
         Rp = 1 - Fp;
         
-        if(falsification){
-            return failure();
-        }
         return Rp;
     }
     
