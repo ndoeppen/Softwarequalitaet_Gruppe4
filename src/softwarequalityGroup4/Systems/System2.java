@@ -13,7 +13,7 @@ public class System2 extends SQSystem{
         super(pComponents, pLambdas, falsification);
         
         if(falsification) {
-            reliability = 0;
+            reliability = -1;
             return;
         }
         
